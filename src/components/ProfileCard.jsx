@@ -26,7 +26,7 @@ function ProfileCard({ profile, onStudentAdded }) {
     setAdding(true);
     try {
       // Use full backend URL to avoid 404 error
-      await axios.post('http://localhost:5000/api/students/add', {
+      await axios.post('https://github-students-tracker.onrender.com/api/students/add', {
         githubId: profile.id,
         login: profile.login,
         name: profile.name,
