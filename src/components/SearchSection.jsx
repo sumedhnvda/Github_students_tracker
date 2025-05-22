@@ -17,7 +17,13 @@ function SearchSection({ setSearchResults, setIsLoading, setError }) {
     setError(null);
     
     try {
-      const results = await searchGitHubUsers(query);
+      // Extract username from GitHub URL if provided
+      let searchQuery = query.trim();
+      if (searchQuery.includes('github.com/')) {
+        searchQuery = searchQuery.split('github.com/').pop().split('/')[0];
+      }
+      
+      const results = await searchGitHubUsers(searchQuery);
       setSearchResults(results);
     } catch (err) {
       setError(err.message || 'Failed to search GitHub users');
@@ -41,7 +47,7 @@ function SearchSection({ setSearchResults, setIsLoading, setError }) {
             Find and Rank Student GitHub Profiles
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Search for students by username or email and analyze their GitHub activity
+            Search for students by username ,link or email and analyze their GitHub activity
           </p>
         </div>
         
@@ -74,7 +80,7 @@ function SearchSection({ setSearchResults, setIsLoading, setError }) {
           </div>
           
           <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-            <span>Examples: "sumedhnvda" , "sumedhnavuda@outlook.com"</span>
+            <span>Examples: "sumedhnvda", "https://github.com/sumedhnvda", "sumedhnavuda@outlook.com"</span>
           </div>
         </form>
       </div>
