@@ -104,7 +104,14 @@ function MyStudents() {
                 <img src={s.avatar_url} alt={s.login} className="w-12 h-12 rounded-full mr-4" />
                 <div>
                   <h3 className="font-semibold">{s.name || s.login}</h3>
-                  <p className="text-sm text-gray-500">@{s.login}</p>
+                  <a 
+                    href={`https://github.com/${s.login}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-primary hover:text-primary-dark hover:underline transition-colors"
+                  >
+                    @{s.login}
+                  </a>
                 </div>
               </div>
               <div className="text-center p-2 bg-secondary/10 rounded-lg">
@@ -132,7 +139,14 @@ function MyStudents() {
                   <img src={s.avatar_url} alt={s.login} className="w-10 h-10 rounded-full mr-3" />
                   <div>
                     <h3 className="font-medium">{s.name || s.login}</h3>
-                    <p className="text-sm text-gray-500">@{s.login}</p>
+                    <a 
+                      href={`https://github.com/${s.login}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:text-primary-dark hover:underline transition-colors"
+                    >
+                      @{s.login}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -140,8 +154,6 @@ function MyStudents() {
           </div>
         </div>
       )}
-
-      {/* Original students list can follow here */}
     </div>
   );
 }
