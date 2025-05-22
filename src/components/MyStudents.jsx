@@ -14,7 +14,7 @@ function MyStudents() {
       setLoading(true);
       try {
         // 1. Get student logins from backend
-        const res = await axios.get('http://https://github-students-tracker.onrender.com/api/students/ranked');
+        const res = await axios.get('https://https://github-students-tracker.onrender.com/api/students/ranked');
         const studentsFromDb = res.data;
 
         // 2. For each student, fetch all details and activity
